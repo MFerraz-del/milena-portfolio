@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1b0f2e;
+  color: #e6d6ff;
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #2e1b4f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 20px 0;
+}
+
+.sidebar a {
+  color: #e6d6ff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #412c6d;
+  border-left: 5px solid #c084fc;
+}
+
+.main-content {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #1b0f2e, #2a1840);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: #c084fc;
+}
+
+.subtext {
+  font-size: 1.5rem;
+  color: #d3b3ff;
+  margin-bottom: 2rem;
+  height: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #c084fc;
+  color: #1b0f2e;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e9b4ff;
+}
+
+/* Seções padrão para animar */
+.section {
+  position: absolute;
+  width: calc(100% - 220px);
+  top: 0;
+  left: 220px;
+  padding: 5rem 2rem;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #1b0f2e, #2a1840);
+  overflow-y: auto;
+  transition: none;
+  z-index: 0;
+}
+
+.section.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+/* Animação saída para esquerda */
+.slide-out-left {
+  animation: slideLeftOut 0.6s forwards;
+  z-index: 0;
+}
+
+/* Animação entrada da direita */
+.slide-in-right {
+  animation: slideRightIn 0.6s forwards;
+  z-index: 2;
+}
+
+@keyframes slideLeftOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRightIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.socials a {
+  margin: 0 1rem;
+  color: #d3b3ff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  background-color: #2a1840;
+}
+
+.titulo-sessao {
+  font-size: 2.5rem;
+  color: #c084fc;
+  margin-bottom: 2rem;
+}
+
+.sobre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.sobre-img {
+  max-width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(192, 132, 252, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.sobre-img:hover {
+  transform: scale(1.05);
+}
+
+.sobre-texto {
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e6d6ff;
+}
+
+.sobre-texto p {
+  margin-bottom: 1.5rem;
+}
+
+.servicos-section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.servicos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.servico-card {
+  background-color: #2e1b4f;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servico-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
+}
+
+.servico-card h3 {
+  color: #c084fc;
+  margin-bottom: 1rem;
+}
+
+.servico-card p {
+  font-size: 1rem;
+  color: #e6d6ff;
+  line-height: 1.6;
+}
+
+.galeria-section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.galeria-subtexto {
+  font-size: 1.2rem;
+  color: #d3b3ff;
+  margin-bottom: 2rem;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.galeria-item {
+  background-color: #2e1b4f;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.galeria-item h3 {
+  margin: 1rem 0 0.5rem;
+  color: #c084fc;
+}
+
+.galeria-item p {
+  font-size: 0.95rem;
+  color: #e6d6ff;
+  padding: 0 1rem 1.5rem;
+}
+
+.carrossel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+}
+
+.carrossel-imagens {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carrossel-imagens img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  height: 180px;
+  border-radius: 12px;
+}
+
+.carrossel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(27, 15, 46, 0.7);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.carrossel button:hover {
+  background: rgba(64, 44, 109, 0.9);
+}
+
+.carrossel .prev {
+  left: 10px;
+}
+
+.carrossel .next {
+  right: 10px;
+}
+
+.contato-section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.info-contato {
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  color: #e6d6ff;
+}
+
+.info-contato p {
+  margin: 0.5rem 0;
+}
+
+.botoes-contato {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.botoes-contato .btn {
+  background-color: #c084fc;
+  color: #1b0f2e;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.botoes-contato .btn:hover {
+  background-color: #e9b4ff;
+}
